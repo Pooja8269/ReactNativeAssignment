@@ -2,18 +2,19 @@ import React, { Component } from "react";
 import {Platform, StyleSheet, Text, View, FlatList, Dimensions, TextInput, TouchableOpacity, Image, TouchableWithoutFeedback } from 'react-native';
 
 const {height, width} = Dimensions.get('window');
-export default class Sample extends Component {
+export default class HomeComponent extends Component {
 
   constructor(props){
     super(props);
     this.state= {
-      newItem: this.props.newItem,
+      newItem: '',
     }
   }
-  
+  clear(){
+    this.setState({newItem:''});
+  }
   render() {
     return (
-
       <View style={styles.container}>
         <View style={{flexDirection: 'row', backgroundColor: '#282851', borderRadius: 30, margin: 20,
           padding: 7, borderColor: this.props.borderRed, borderWidth: 2}}>
@@ -22,7 +23,7 @@ export default class Sample extends Component {
               placeholder="Add Item" placeholderTextColor="#ffffff" onChangeText={(newItem)=> this.setState({newItem})}  value={this.state.newItem} />
           </View>
           <View style={{alignItems: 'flex-end'}}>
-            <TouchableOpacity onPress={ () => this.props.addItem(this.state.newItem)}>
+            <TouchableOpacity onPress={ () => {this.props.addItem(this.state.newItem); this.clear();}}>
               <Image style={{width: 40, height: 40, marginRight: 20,}}
                       source={{uri: 'https://cdn0.iconfinder.com/data/icons/round-ui-icons/512/add_blue.png'}} />
             </TouchableOpacity>
@@ -30,7 +31,7 @@ export default class Sample extends Component {
         </View>
         <View style={{borderColor: '#383863', borderWidth: 1, marginbottom:20}}></View>
         <View style={{flex:1}}>
-          <Text  style={styles.head}>TO DO List</Text>
+          <Text  style={styles.head}>TO DO</Text>
           <FlatList
             data={this.props.toDoItemList}
             renderItem={({item}) => 

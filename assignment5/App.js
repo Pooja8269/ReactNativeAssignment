@@ -2,11 +2,11 @@
 import React, {Component} from 'react';
 import {Provider} from 'react-redux';
 import { createStore } from 'redux';
-import CounterComponent from './src/Containers/index';
-import CounterReducer from './src/Reducers/CounterReducer'
+import HomeContainer from './src/Containers';
+import AppReducer from './src/Reducers';
 
 
-const store = createStore(CounterReducer);
+const store = createStore(AppReducer);
 
 export default class App extends Component {
 
@@ -17,7 +17,7 @@ export default class App extends Component {
   render() {
     return (
       <Provider store = {store}>
-        <CounterComponent />
+        <HomeContainer />
       </Provider>
     );
   }

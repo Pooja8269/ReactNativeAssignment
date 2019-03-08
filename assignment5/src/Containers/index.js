@@ -1,19 +1,18 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View,TextInput,Button,Alert, TouchableOpacity} from 'react-native';
 import {connect} from 'react-redux';
-import Sample from '../Components/index';
+import HomeComponent from '../Components';
 import { bindActionCreators } from "redux";
-import {addItem, checkedTask} from "../Actions/index";
+import {addItem, checkedTask} from "../Actions";
 
-class CounterComponent extends Component{
+class HomeContainer extends Component{
   constructor(props){
     super(props);
   }
   
   render(){
     return(
-     <Sample
-        newItem={this.props.newItem}
+     <HomeComponent
         borderRed={this.props.borderRed}
         toDoItemList={this.props.toDoItemList}
         complatedList={this.props.complatedList}
@@ -25,7 +24,6 @@ class CounterComponent extends Component{
 }
 
 const mapStateToProps = (state) => ({
-  newItem:state.newItem,
   borderRed: state.borderRed,
   toDoItemList: state.toDoItemList,
   complatedList: state.complatedList,
@@ -46,4 +44,4 @@ const mapDispatchToProps = dispatch => (
 );
 
 
-export default connect(mapStateToProps, {addItem, checkedTask})(CounterComponent);
+export default connect(mapStateToProps, {addItem, checkedTask})(HomeContainer);
