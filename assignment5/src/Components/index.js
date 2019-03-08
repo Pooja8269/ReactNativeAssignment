@@ -19,7 +19,7 @@ export default class Sample extends Component {
           padding: 7, borderColor: this.props.borderRed, borderWidth: 2}}>
           <View style={{width: width-100}}>
             <TextInput style={{fontSize:18, paddingLeft: 25, paddingTop:4, color: '#ffffff'}}
-              placeholder="Add Item" placeholderTextColor="#ffffff" onChangeText={(newItem)=> this.setState({newItem})}  value={this.props.newItem} />
+              placeholder="Add Item" placeholderTextColor="#ffffff" onChangeText={(newItem)=> this.setState({newItem})}  value={this.state.newItem} />
           </View>
           <View style={{alignItems: 'flex-end'}}>
             <TouchableOpacity onPress={ () => this.props.addItem(this.state.newItem)}>
