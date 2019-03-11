@@ -1,24 +1,15 @@
-
-const AppReducer = (state = {
-      toDoItemList:[],
-      complatedList:[], 
-      borderRed: '#282851', }, action) => {
+const initState = {
+  toDoItemList:[],
+  complatedList:[], 
+}
+const AppReducer = (state = initState, action) => {
   switch(action.type){
     case "ADD_ITEM":
-      if(action.payload != ''){
-        var toDoItemListNew = state.toDoItemList.slice();
-        toDoItemListNew.unshift({key: action.payload});
-        return Object.assign({}, state, {
-          toDoItemList: toDoItemListNew,
-          borderRed: '#282851',
-        })
-      }
-      else{
-        alert("Please enter content on add item filed..")
-        return Object.assign({}, state, {
-          borderRed: '#df4159',
-        })
-      }
+      var toDoItemListNew = state.toDoItemList.slice();
+      toDoItemListNew.unshift({key: action.payload});
+      return Object.assign({}, state, {
+        toDoItemList: toDoItemListNew,
+      })
     case "CHECK_TASK":
       if(action.payload != ''){
         var complatedListNew = state.complatedList.slice();
