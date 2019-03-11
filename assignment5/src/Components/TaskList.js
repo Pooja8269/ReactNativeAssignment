@@ -4,7 +4,6 @@ import {Platform, StyleSheet, Text, View, Dimensions, TextInput, TouchableOpacit
 const {height, width} = Dimensions.get('window');
 
 export default class TaskListComponent extends Component {
-
   render() {
     return (
         <View style={styles.container}>

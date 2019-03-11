@@ -40,6 +40,7 @@ export default class ItemInputComponent extends Component {
   clear(){
     this.setState({newItem:''});
   }
+  
   render() {
     return (
       <View style={{flexDirection: 'row', backgroundColor: '#282851', borderRadius: 30, margin: 20,

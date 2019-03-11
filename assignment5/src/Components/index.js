@@ -6,15 +6,6 @@ import TaskListComponent from './TaskList';
 const {height, width} = Dimensions.get('window');
 export default class HomeComponent extends Component {
 
-  constructor(props){
-    super(props);
-    this.state= {
-      newItem: '',
-    }
-  }
-  clear(){
-    this.setState({newItem:''});
-  }
   render() {
     return (
       <View style={styles.container}>
@@ -32,8 +23,7 @@ export default class HomeComponent extends Component {
           complatedList={this.props.complatedList}
           checkedTask={this.props.checkedTask}
         />
-        
-    
+
       </View>
     );
   }

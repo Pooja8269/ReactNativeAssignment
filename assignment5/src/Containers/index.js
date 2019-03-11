@@ -6,10 +6,6 @@ import { bindActionCreators } from "redux";
 import {addItem, checkedTask} from "../Actions";
 
 class HomeContainer extends Component{
-  constructor(props){
-    super(props);
-  }
-  
   render(){
     return(
      <HomeComponent
@@ -34,7 +30,6 @@ const mapStateToProps = (state) => ({
 //   decrement: () => dispatch({type: "COUNTER_DECREMENT"}),
 //   addItem: () => dispatch({type: "ADD_ITEM", payload: "dsfa",}),
 // });
-
 
 const mapDispatchToProps = dispatch => (
   bindActionCreators({
