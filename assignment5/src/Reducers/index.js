@@ -11,15 +11,12 @@ const AppReducer = (state = initState, action) => {
         toDoItemList: toDoItemListNew,
       })
     case "CHECK_TASK":
-      if(action.payload != ''){
-        var complatedListNew = state.complatedList.slice();
-        complatedListNew.unshift(action.payload);
-        return Object.assign({}, state, {
-            toDoItemList: state.toDoItemList.filter(i=> i !== action.payload),
-            complatedList: complatedListNew,
-        })
-      }
-      return state;
+      var complatedListNew = state.complatedList.slice();
+      complatedListNew.unshift(action.payload);
+      return Object.assign({}, state, {
+          toDoItemList: state.toDoItemList.filter(i=> i !== action.payload),
+          complatedList: complatedListNew,
+      })
     default:
       return state;
   }
