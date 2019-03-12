@@ -9,7 +9,6 @@ class HomeContainer extends Component{
   render(){
     return(
      <HomeComponent
-        borderRed={this.props.borderRed}
         toDoItemList={this.props.toDoItemList}
         complatedList={this.props.complatedList}
         checkedTask={this.props.checkedTask}
@@ -20,7 +19,6 @@ class HomeContainer extends Component{
 }
 
 const mapStateToProps = (state) => ({
-  borderRed: state.borderRed,
   toDoItemList: state.toDoItemList,
   complatedList: state.complatedList,
 });
