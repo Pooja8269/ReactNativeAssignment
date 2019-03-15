@@ -11,3 +11,10 @@ export const checkedTask = item => (
     payload: item,
   }
 );
+
+export const removeTask = item => (
+  {
+    type: 'REMOVE_TASK',
+    payload: item,
+  }
+);

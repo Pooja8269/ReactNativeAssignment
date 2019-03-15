@@ -22,6 +22,9 @@ export default class HomeComponent extends Component {
           toDoItemList={this.props.toDoItemList}
           complatedList={this.props.complatedList}
           checkedTask={this.props.checkedTask}
+          removeTask={this.props.removeTask}
+          totalCount = {this.props.totalCount}
+          pendingCount = {this.props.pendingCount}
         />
 
       </View>

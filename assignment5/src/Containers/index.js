@@ -3,7 +3,7 @@ import {Platform, StyleSheet, Text, View,TextInput,Button,Alert, TouchableOpacit
 import {connect} from 'react-redux';
 import HomeComponent from '../Components';
 import { bindActionCreators } from "redux";
-import {addItem, checkedTask} from "../Actions";
+import {addItem, checkedTask, removeTask} from "../Actions";
 
 class HomeContainer extends Component{
   render(){
@@ -11,8 +11,11 @@ class HomeContainer extends Component{
      <HomeComponent
         toDoItemList={this.props.toDoItemList}
         complatedList={this.props.complatedList}
+        pendingCount={this.props.pendingCount}
+        totalCount={this.props.totalCount}
         checkedTask={this.props.checkedTask}
         addItem={this.props.addItem}
+        removeTask={this.props.removeTask}
       />
     )
   }
@@ -21,6 +24,8 @@ class HomeContainer extends Component{
 const mapStateToProps = (state) => ({
   toDoItemList: state.toDoItemList,
   complatedList: state.complatedList,
+  totalCount: state.totalCount,
+  pendingCount: state.pendingCount,
 });
 
 // const mapDispatchToProps = (dispatch) => ({
@@ -33,6 +38,7 @@ const mapDispatchToProps = dispatch => (
   bindActionCreators({
     addItem,
     checkedTask,
+    removeTask,
   }, dispatch)
 );
 
